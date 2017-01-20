@@ -5,7 +5,7 @@ from .models import WebSite
 from .serializers import WebSiteModelSerializer
 
 
-class WebSiteViewSet(viewsets.ModelViewSet):
+class WebSiteModelViewSet(viewsets.ModelViewSet):
     model            = WebSite
     serializer_class = WebSiteModelSerializer
     queryset         = WebSite.objects.all()

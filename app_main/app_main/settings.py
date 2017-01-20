@@ -26,12 +26,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #A.P.I.
+    'rest_framework',
+    'social.apps.django_app.default',
+    'embed_video',
     #Class Abstract 
     'infos_systems.apps.InfosSystemsConfig',
     #Assist Control
     'auth_users.apps.AuthUsersConfig',
     #Web Sites
     'web_sites.apps.WebSitesConfig',
+    'web_headers.apps.WebHeadersConfig',
+    'web_sections.apps.WebSectionsConfig',
+    'web_portals.apps.WebPortalsConfig',
+    'web_slides.apps.WebSlidesConfig',
+    'web_sliders.apps.WebSlidersConfig',
+    'index.apps.IndexConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,10 +65,16 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Python Social Auth Context Processors
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+                
             ],
         },
     },
@@ -136,3 +152,17 @@ MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'
 
 #Configuración de Usuario
 AUTH_USER_MODEL = 'auth_users.AuthUser'
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_FACEBOOK_KEY = '1826914080927037'
+SOCIAL_AUTH_FACEBOOK_SECRET = '2b8f6339be1d827d335e4605c6de8cdf'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id,name,email', 
+}

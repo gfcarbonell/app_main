@@ -5,5 +5,5 @@ from .models import WebSite
 
 class WebSiteModelSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = SitioWeb
+		model = WebSite
 		fields = ['id', 'url', 'description', 'is_active']

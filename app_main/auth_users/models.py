@@ -17,8 +17,6 @@ from django.core.validators import MinLengthValidator
 from django.core.validators import EmailValidator
 
 
-
-
 class UserManager(BaseUserManager):
 
 	def _create_user(self, username, email, password, **extra_fields):
@@ -123,15 +121,27 @@ class AuthUser(AbstractBaseUser, PermissionsMixin):
 														)
 	host_name				    	= models.CharField(
 														verbose_name='Nombre host', 
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	ip_address			    		= models.GenericIPAddressField(
 														verbose_name='Dirección I.P.', 
-														validators=[validate_ipv46_address]
+														validators=[
+														    validate_ipv46_address,
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	mac_address						= models.CharField(
 														verbose_name='Dirección M.A.C.', 	
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_date				= models.DateTimeField(
 															verbose_name='Fecha última actualización',
@@ -144,15 +154,27 @@ class AuthUser(AbstractBaseUser, PermissionsMixin):
 														 related_name='auth_users_auth_user_related')
 	last_update_host_name 			= models.CharField(
 														verbose_name='Última actualizacion de nombre host ', 
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_ip_address			= models.GenericIPAddressField(
 														verbose_name='Última actualizacion de Dirección I.P.', 
-														validators=[validate_ipv46_address]
+														validators=[
+														    validate_ipv46_address,
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_mac_address 		= models.CharField(
 														verbose_name='Última actualizacion de Dirección M.A.C.', 	
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 
 	objects = UserManager()

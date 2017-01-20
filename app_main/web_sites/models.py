@@ -8,8 +8,9 @@ from django.template.defaultfilters import slugify
 
 
 class WebSite(InfoSystem):
-	__BOOL_ACTIVE 		 				= 	((True, 'Yes'), (False, 'Not'))
+	__BOOL_SELECTED 		 			= 	((True, 'Yes'), (False, 'Not'))
 	url 	   							= 	models.URLField(
+												verbose_name='U.R.L.', 
 											  	max_length=255,
 										      	validators=[
 										  		        MinLengthValidator(1),
@@ -19,11 +20,16 @@ class WebSite(InfoSystem):
 											  	db_index=True, 
 										  	)
 	description    						= 	models.TextField(
-												#verbose_name='Descripción (Opcional)', 
+												verbose_name='Descripción', 
 												null=True, 
 												blank=True,	
+												help_text='Escribir una descripción del sitio web (opcional) .'
 											)
-	is_active 							= models.BooleanField(choices=__BOOL_ACTIVE, default=True)
+	is_active 							=   models.BooleanField(
+															choices=__BOOL_SELECTED, 
+															verbose_name='¿Activo?',
+															default=True
+														)
 
 	#Métodos
 	#Python 3.X
@@ -68,6 +74,6 @@ class WebSite(InfoSystem):
 		#Ordenar los registros por un campo especifico
 		ordering = ('url',)
 		#Nombre para el Conjunto de Objetos en el Panel de Administración
-		verbose_name = 'WebSite'
+		verbose_name = 'Web Site'
 		#Nombre en Plural en la lista de módulos en el Panel de Administración
-		verbose_name_plural = 'WebSites'
+		verbose_name_plural = 'Web Sites'

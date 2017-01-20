@@ -2,6 +2,8 @@
 from django.db import models
 from auth_users.models import AuthUser
 from django.core.validators import validate_ipv46_address
+from django.core.validators import MaxLengthValidator
+from django.core.validators import MinLengthValidator
 
 
 class InfoSystem(models.Model):
@@ -17,15 +19,27 @@ class InfoSystem(models.Model):
 													)
 	host_name				    	= models.CharField(
 														verbose_name='Nombre host', 
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	ip_address			    		= models.GenericIPAddressField(
 														verbose_name='Dirección I.P.', 
-														validators=[validate_ipv46_address]
+														validators=[
+														    validate_ipv46_address,
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	mac_address						= models.CharField(
 														verbose_name='Dirección M.A.C.', 	
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_date				= models.DateTimeField(
 															verbose_name='Fecha última actualización',
@@ -39,15 +53,27 @@ class InfoSystem(models.Model):
 													)
 	last_update_host_name 			= models.CharField(
 														verbose_name='Última actualizacion de nombre host ', 
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_ip_address			= models.GenericIPAddressField(
 														verbose_name='Última actualizacion de Dirección I.P.', 
-														validators=[validate_ipv46_address]
+														validators=[
+														    validate_ipv46_address,
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 	last_update_mac_address 		= models.CharField(
 														verbose_name='Última actualizacion de Dirección M.A.C.', 	
-														max_length=255
+														max_length=255,
+														validators=[
+											  		        MinLengthValidator(1),
+											  		        MaxLengthValidator(255),
+											  		   	],
 													)
 
 	class Meta:
