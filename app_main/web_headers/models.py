@@ -58,7 +58,8 @@ class WebHeader(InfoSystem):
 															verbose_name='¿Es Vídeo?',
 															default=False
 														)
-	video_source 						=   models.BooleanField(
+	video_source 
+										=   models.BooleanField(
 															choices=__BOOL_VIDEO_SOURCE, 
 															verbose_name='Fuente de vídeo',
 															default=True

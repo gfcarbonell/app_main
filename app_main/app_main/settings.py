@@ -35,12 +35,12 @@ INSTALLED_APPS = [
     #Assist Control
     'auth_users.apps.AuthUsersConfig',
     #Web Sites
-    'web_sites.apps.WebSitesConfig',
-    'web_headers.apps.WebHeadersConfig',
-    'web_sections.apps.WebSectionsConfig',
-    'web_portals.apps.WebPortalsConfig',
-    'web_slides.apps.WebSlidesConfig',
-    'web_sliders.apps.WebSlidersConfig',
+    #'web_sites.apps.WebSitesConfig',
+    #'web_headers.apps.WebHeadersConfig',
+    #'web_sections.apps.WebSectionsConfig',
+    #'web_portals.apps.WebPortalsConfig',
+    #'web_slides.apps.WebSlidesConfig',
+    #'web_sliders.apps.WebSlidersConfig',
     'index.apps.IndexConfig',
 ]
 
