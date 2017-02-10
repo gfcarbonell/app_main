@@ -31,5 +31,6 @@ class AuthUserAdmin(InfoSystemAdmin, UserAdmin):
 			(('Permissions'), {'fields':( 'is_superuser', 'is_staff', 'is_active', 'groups', 'user_permissions')}),
 			
 		)
+	
 	class Meta:
 		model = AuthUser

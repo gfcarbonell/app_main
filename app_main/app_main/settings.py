@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'infos_systems.apps.InfosSystemsConfig',
     #Assist Control
     'auth_users.apps.AuthUsersConfig',
+    'identification_documents.apps.IdentificationDocumentsConfig',
+    'civil_states.apps.CivilStatesConfig',
+    'blood_groups.apps.BloodGroupsConfig',
     #Web Sites
     #'web_sites.apps.WebSitesConfig',
     #'web_headers.apps.WebHeadersConfig',
@@ -140,6 +143,7 @@ if DEBUG == False:
     STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
 else:
     STATICFILES_DIRS = [os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])]
+
 STATICFILES_FINDERS = {
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',

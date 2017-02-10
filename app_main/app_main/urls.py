@@ -4,18 +4,19 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
-from web_sites.views import WebSiteModelViewSet
-from web_headers.views import WebHeaderModelViewSet
-from web_sections.views import WebSectionModelViewSet
-from web_slides.views import WebSlideModelViewSet
-from web_sliders.views import WebSliderModelViewSet
+
+from auth_users.views import AuthUserModelViewSet
+from identification_documents.views import IdentificationDocumentsModelViewSet
+from civil_states.views import CivilStateModelViewSet
+from blood_groups.views import BloodGroupModelViewSet
+
+
 router = routers.DefaultRouter()
 
-router.register(r'web-sites', WebSiteModelViewSet)
-router.register(r'web-headers', WebHeaderModelViewSet)
-router.register(r'web-sections', WebSectionModelViewSet)
-router.register(r'web-slides', WebSlideModelViewSet)
-router.register(r'web-sliders', WebSliderModelViewSet)
+router.register(r'auth-users', AuthUserModelViewSet)
+router.register(r'identification-documents', IdentificationDocumentsModelViewSet)
+router.register(r'civil-states', CivilStateModelViewSet)
+router.register(r'blood_groups', BloodGroupModelViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
