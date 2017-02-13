@@ -32,11 +32,18 @@ INSTALLED_APPS = [
     'embed_video',
     #Class Abstract 
     'infos_systems.apps.InfosSystemsConfig',
+    'persons.apps.PersonsConfig',
     #Assist Control
     'auth_users.apps.AuthUsersConfig',
+    'auth_users_profiles.apps.AuthUsersProfilesConfig',
     'identification_documents.apps.IdentificationDocumentsConfig',
     'civil_states.apps.CivilStatesConfig',
     'blood_groups.apps.BloodGroupsConfig',
+    'bar_code_types.apps.BarCodeTypesConfig',
+    'countries.apps.CountriesConfig',
+    'departments.apps.DepartmentsConfig',
+    'provinces.apps.ProvincesConfig',
+    'districts.apps.DistrictsConfig',
     #Web Sites
     #'web_sites.apps.WebSitesConfig',
     #'web_headers.apps.WebHeadersConfig',

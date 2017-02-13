@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
 from infos_systems.admin import InfoSystemAdmin
-from .models import IdentificationDocument
+from .models import BarCodeType
 
 
-@admin.register(IdentificationDocument)
-class IdentificationDocumentAdmin(InfoSystemAdmin, admin.ModelAdmin):
+@admin.register(BarCodeType)
+class BarCodeTypeAdmin(InfoSystemAdmin, admin.ModelAdmin):
 
-	list_display =  ['name', 'abreviation', 'number_of_digits'] + [
+	list_display =  ['name'] + [
 	
 						'slug', 
 						'registration_date', 
@@ -23,6 +23,6 @@ class IdentificationDocumentAdmin(InfoSystemAdmin, admin.ModelAdmin):
 				     ]
 
 	search_fields  = ('name', 'id')
-	
+
 	class Meta:
-		model = IdentificationDocument
+		model = BarCodeType

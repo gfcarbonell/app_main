@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
 from infos_systems.admin import InfoSystemAdmin
-from .models import IdentificationDocument
+from .models import Country
 
 
-@admin.register(IdentificationDocument)
-class IdentificationDocumentAdmin(InfoSystemAdmin, admin.ModelAdmin):
+@admin.register(Country)
+class CountryAdmin(InfoSystemAdmin, admin.ModelAdmin):
 
-	list_display =  ['name', 'abreviation', 'number_of_digits'] + [
+	list_display =  ['name', 'postal_code', 'photograph', 'description'] + [
 	
 						'slug', 
 						'registration_date', 
@@ -25,4 +25,4 @@ class IdentificationDocumentAdmin(InfoSystemAdmin, admin.ModelAdmin):
 	search_fields  = ('name', 'id')
 	
 	class Meta:
-		model = IdentificationDocument
+		model = Country

@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 from rest_framework import serializers
-from .models import IdentificationDocuments
+from .models import IdentificationDocument
 
 
-class IdentificationDocumentsModelSerializer(serializers.ModelSerializer):
+class IdentificationDocumentModelSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = IdentificationDocuments
+		model = IdentificationDocument
 		fields = ['id', 'name', 'abreviation', 'number_of_digits']
 

@@ -148,10 +148,12 @@ class AuthUser(AbstractBaseUser, PermissionsMixin):
 															auto_now_add=False,
 															auto_now=True
 														)
-	last_updated_by					= models.ForeignKey('self', 
-														 verbose_name='Última actualización por',		
-														 null=True, default=None, 
-														 related_name='auth_users_auth_user_related')
+	last_updated_by					= models.ForeignKey(
+														'self', 
+														verbose_name='Última actualización por',		
+														null=True, 
+														default=None, 
+														related_name='auth_users_auth_user_related')
 	last_update_host_name 			= models.CharField(
 														verbose_name='Última actualizacion de nombre host ', 
 														max_length=255,

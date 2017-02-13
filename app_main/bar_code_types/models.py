@@ -4,13 +4,10 @@ from django.db import models
 from infos_systems.models import InfoSystem
 from django.core.validators import MaxLengthValidator
 from django.core.validators import MinLengthValidator
-from django.core.validators import MaxValueValidator
-from django.core.validators import MinValueValidator
-
 from django.template.defaultfilters import slugify
 
 
-class IdentificationDocument(InfoSystem):
+class BarCodeType(InfoSystem):
 	name 	   								= 	models.CharField(
 												verbose_name='Nombre', 
 											  	max_length=255,
@@ -20,22 +17,7 @@ class IdentificationDocument(InfoSystem):
 										  		    ],
 											  	db_index=True, 
 										  	)
-	abreviation 	   						= 	models.CharField(
-												verbose_name='Abreviatura', 
-											  	max_length=30,
-										      	validators=[
-										  		        MinLengthValidator(1),
-										  		        MaxLengthValidator(30),
-										  		    ],
-											  	db_index=True, 
-										  	)
-	number_of_digits						= 	models.PositiveSmallIntegerField(
-												verbose_name='Número de digitos', 
-										      	validators=[
-										  		        MinValueValidator(1),
-										  		        MaxValueValidator(30),
-										  		    ],
-										  	)	
+	
 	#Métodos
 	#Python 3.X
 	def __str__(self):
@@ -58,16 +40,15 @@ class IdentificationDocument(InfoSystem):
 			slug = slugify(self.get_name())
 			if self.slug != slug:
 				self.slug = slug
-		super(IdentificationDocument
-			, self).save(*args, **kwargs)
+		super(BarCodeType, self).save(*args, **kwargs)
 
 	#Opciones
 	class Meta:
 		#Nombre para la tabla del gestor de base de datos
-		db_table = 'identification_documents'
+		db_table = 'bar_code_types'
 		#Ordenar los registros por un campo especifico
 		ordering = ('name',)
 		#Nombre para el Conjunto de Objetos en el Panel de Administración
-		verbose_name = 'Identification Document'
+		verbose_name = 'Bar Code Type'
 		#Nombre en Plural en la lista de módulos en el Panel de Administración
-		verbose_name_plural = 'Identification Documents'
+		verbose_name_plural = 'Bar Code Types'

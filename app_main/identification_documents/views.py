@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import IdentificationDocuments
-from .serializers import IdentificationDocumentsModelSerializer
+from .models import IdentificationDocument
+from .serializers import IdentificationDocumentModelSerializer
 
 
-class IdentificationDocumentsModelViewSet(viewsets.ModelViewSet):
-    model            = IdentificationDocuments
-    serializer_class = IdentificationDocumentsModelSerializer
-    queryset         = IdentificationDocuments.objects.all()
+class IdentificationDocumentModelViewSet(viewsets.ModelViewSet):
+    model            = IdentificationDocument
+    serializer_class = IdentificationDocumentModelSerializer
+    queryset         = IdentificationDocument.objects.all()
