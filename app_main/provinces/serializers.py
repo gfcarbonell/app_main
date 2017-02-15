@@ -8,5 +8,5 @@ class ProvinceModelSerializer(serializers.ModelSerializer):
 	department = DepartmentModelSerializer(many=False)
 	class Meta:
 		model = Province
-		fields = ['department', 'name', 'photograph', 'description']
+		fields = ['id', 'department', 'name', 'photograph', 'description']
 

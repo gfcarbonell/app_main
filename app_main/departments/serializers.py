@@ -7,5 +7,5 @@ class DepartmentModelSerializer(serializers.ModelSerializer):
 	country = CountryModelSerializer(many=False)
 	class Meta:
 		model = Department
-		fields = ['country', 'name', 'postal_code', 'photograph', 'description']
+		fields = ['id', 'country', 'name', 'postal_code', 'photograph', 'description']
 

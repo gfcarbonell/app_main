@@ -13,6 +13,7 @@ from countries.views import CountryModelViewSet
 from departments.views import DepartmentModelViewSet
 from provinces.views import ProvinceModelViewSet
 from districts.views import DistrictModelViewSet
+from bar_code_types.views import BarCodeTypeModelViewSet
 
 router = routers.DefaultRouter()
 
@@ -25,6 +26,7 @@ router.register(r'countries', CountryModelViewSet)
 router.register(r'departments', DepartmentModelViewSet)
 router.register(r'provinces', ProvinceModelViewSet)
 router.register(r'districts', DistrictModelViewSet)
+router.register(r'bar-code-types', BarCodeTypeModelViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
